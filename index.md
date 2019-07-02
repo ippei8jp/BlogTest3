@@ -18,16 +18,11 @@ layout: default
 
 - [nodenvのインストール](20190628_1)
 
-{% raw  %}
+さいと
 
 {{ site | inspect }}
 
-{% endraw  %}
-
-ほげほげ
-
-{% raw  %}
+でぃす
 
 {% this %}
 
-{% endraw  %}
