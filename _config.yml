@@ -1,1 +1,10 @@
 theme: jekyll-theme-leap-day
+encding: utf-8
+plugins: 
+  - jekyll-github-metadata
+github : [metadata]
+repository:     ippei8jp/BlogTest3
+source:         .
+title:          いっぺーちゃんのメモブログ
+description:    作業メモ
+show_downloads: false
