@@ -8,3 +8,4 @@ source:         .
 title:          いっぺーちゃんのメモブログ
 description:    作業メモ
 show_downloads: false
+exclude:        [server.sh, Gemfile, Gemfile.lock]
