@@ -1,6 +1,6 @@
 ---
 ---
-
+/* jekyllで使用するscssファイルには先頭に「---」2行が必要 */
 @import "{{ site.theme }}";
 
 nav {

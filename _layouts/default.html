@@ -56,7 +56,7 @@
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
         -->
-        <p> <a href="/">トップページ</a></p>
+        <p> <a href="{{ site.github.url | default : "/" }}">トップページ</a></p>
         <p class="copyright">{{ site.title }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
       </footer>
     </div>
