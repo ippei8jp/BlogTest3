@@ -17,3 +17,4 @@ layout: default
 # Node.js
 
 - [nodenvのインストール](20190628_1)
+{{ site | inspect }}
