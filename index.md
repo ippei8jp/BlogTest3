@@ -20,10 +20,5 @@ layout: default
 
 さいと
 
-{% site %}
-
-でぃす
-
-{% this %}
-
+{{ site | inspect }}
 
