@@ -21,5 +21,5 @@ layout: default
 さいと
 
 ```javascript
-{{ site.github | inspect }}
+{{ site | inspect }}
 ```
