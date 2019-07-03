@@ -20,5 +20,6 @@ layout: default
 
 さいと
 
-{{ site | jsonify }}
-
+```javascript
+{{ site.github | inspect }}
+```
