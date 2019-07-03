@@ -20,5 +20,5 @@ layout: default
 
 さいと
 
-{{ site | inspect }}
+{{ site | jsonify }}
 
