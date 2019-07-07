@@ -12,3 +12,17 @@ nav {
   height: 70px;
   top: 95px;
 }
+.avatar {
+    height: 64px;
+    width: 64px;
+    border-radius: 999em;
+    margin-right: 20px;
+}
+
+header {
+    background: #00e64d;
+}
+
+header.toppage {
+    background: #0d5bee;
+}

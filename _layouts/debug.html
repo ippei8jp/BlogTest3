@@ -8,9 +8,10 @@
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>{{ page.title }}</title>
+
   </head>
   <body>
-      <header>
+      <header style="background: #ff66a3;">
         <h1>{{ page.title }}</h1>
         <p>{{ page.excerpt }}</p>
       </header>
@@ -24,15 +25,19 @@
 
       </section>
       <footer>
-        <!--
-        {% if site.github.is_project_page %}
-          <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
-        -->
         <p> <a href="{{ site.github.url }}/">トップページ</a></p>
         <p class="copyright">{{ site.title }} maintained by <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a></p>
       </footer>
     </div>
+    <script>
+      // 2段変換された&quot;などを元に戻す
+      $(function(){
+        $('code').each(function() {
+          var txt= $(this).html();
+          var txt2 = txt.replace(/&amp;quot;/g,'&quot;').replace(/&amp;lt;/g,'&lt;').replace(/&amp;gt;/g,'&gt;');
+          $(this).html(txt2);
+        });
+      });
+    </script>
   </body>
 </html>

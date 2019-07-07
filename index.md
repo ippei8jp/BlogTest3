@@ -2,6 +2,7 @@
 title: 目次
 date: 2019-06-30
 layout: toppage
+show_banner: false
 ---
 # ubuntu
 
@@ -18,8 +19,7 @@ layout: toppage
 
 - [nodenvのインストール](20190628_1)
 
-さいと
+# debug
 
-```javascript
-{{ site | inspect }}
-```
+- [debug](debug)
+
