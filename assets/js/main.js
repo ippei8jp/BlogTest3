@@ -36,3 +36,38 @@ $(function() {
 
   $('img').on('load', sectionHeight);
 });
+
+
+// -------- copy button関連処理 --------
+$(function() {
+  // すべてのhighlightクラスを持つdiv要素にselect_all_buttonクラスを持つdiv要素を追加する
+  // $("div.highlight").prepend('<div class="select_all_button">Copy</div>');
+  // すべてのhighlightクラスを持つpre要素の前にselect_all_buttonクラスを持つdiv要素を追加する
+  $("pre.highlight").before('<div class="select_all_button">Copy</div>');
+
+  // select_all_buttonクラスのclickイベントを登録
+  $(".select_all_button").on("click", function(event) {
+    // thisの次の兄弟エレメント(preのはず)の中のテキスト
+    let text = this.nextSibling.innerText;
+
+    // コピー用に一時的にテキストエリアを追加(一瞬見えるかもしれないが我慢して)
+    // textareaにhidden属性を付けると消せるが、クリップボードへコピーできない
+    $('body').append('<textarea id="copyInputArea">' + text + '</textarea>');
+
+    // 作成したテキストエリア
+    let copyInput = $('#copyInputArea')[0];
+
+    // を選択
+    copyInput.select();
+
+    // したのをコピー
+    document.execCommand('copy');
+
+    // 要らなくなったので廃棄
+    copyInput.remove();
+
+    // コピーを通知
+    // console.log("コピーしました");
+    // alert("コピーしました");
+  });
+});

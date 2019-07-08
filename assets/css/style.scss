@@ -26,3 +26,26 @@ header {
 header.toppage {
     background: #0d5bee;
 }
+/* -------- copy buttonの設定 -------- */
+/* コードの領域(preの親) */
+div.highlight {
+    position: relative;
+}
+
+/* 選択ボタン(非表示にしておく) */
+.select_all_button {
+    display: none;
+    position: absolute;
+    right: 0; top: 0;
+    padding: 3px 6px 1px 6px;
+    font-size: 1.1rem;
+    color: #fff;
+    background: #ff8080;
+    cursor: pointer;
+}
+
+/* コードの領域にマウスオンで選択ボタンを表示 */
+div.highlight:hover .select_all_button {
+    display: inline-block;
+}
+
