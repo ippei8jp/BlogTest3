@@ -47,8 +47,12 @@ $(function() {
 
   // select_all_buttonクラスのclickイベントを登録
   $(".select_all_button").on("click", function(event) {
-    // thisの次の兄弟エレメント(preのはず)の中のテキスト
-    let text = this.nextSibling.innerText;
+    // thisの次の兄弟エレメント(preのはず)
+    let elem_pre = this.nextSibling;
+    // の子の最初のcodeタグ
+    let elem_code = elem_pre.getElementsByTagName('code')[0];
+    // の中のテキスト
+    let text = elem_code.innerText;
 
     // コピー用に一時的にテキストエリアを追加(一瞬見えるかもしれないが我慢して)
     // textareaにhidden属性を付けると消せるが、クリップボードへコピーできない
@@ -70,4 +74,19 @@ $(function() {
     // console.log("コピーしました");
     // alert("コピーしました");
   });
+});
+
+
+// -------- 行番号関連処理 --------
+$(function() {
+  let pre = document.getElementsByTagName('pre');
+  let pl = pre.length;
+  for (let i = 0; i < pl; i++) {
+    pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+    let num = pre[i].innerHTML.split(/\n/).length;
+    for (let j = 0; j < (num - 1); j++) {
+      let line_num = pre[i].getElementsByTagName('span')[0];
+      line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+    }
+  }
 });

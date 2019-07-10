@@ -49,3 +49,33 @@ div.highlight:hover .select_all_button {
     display: inline-block;
 }
 
+
+/* -------- 行番号表示関連設定 -------- */
+pre {
+  code {
+    font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+    font-size: 1em;
+  }
+  .line-number {
+    display: block;
+    float: left;
+    font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+    font-size: 1em;
+    text-shadow: 0px 1px 0px #000;
+    margin-left: -1em;
+    margin-right: 1em;
+    border-right: 1px solid #ddd;
+    text-align: right;
+    span {
+      display: block;
+      font-size: 1em;
+      padding: 0 .5em 0 1em;
+      color: #ccc;
+    }
+  }
+  .cl {
+    display: block;
+    clear: both;
+  }
+}
+
