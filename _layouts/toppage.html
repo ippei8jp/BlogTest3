@@ -63,7 +63,7 @@
         {% if site.baseurl == null %}
           {% assign baseurl = "" %}
         {% else %}
-          {% assign baseurl = "{{ site.baseurl }}" %}
+          {% assign baseurl = {{ site.baseurl }} %}
         {% endif %}
         {% for post in site.posts %}
           <div class="list_item" data-tags='{{ post.tags | inspect | smartify }}'>
