@@ -25,12 +25,12 @@
 
       </section>
       <footer>
-        <p> <a href="{{ site.github.url }}/">トップページ</a></p>
-        <p class="copyright">{{ site.title }} maintained by <a href="{{ site.github.repository_url }}">{{ site.github.repository_nwo }}</a></p>
+        {% include footer.html %}
       </footer>
     </div>
     <script>
       // 2段変換された&quot;などを元に戻す
+      // Liquidのquoteで置換してもダメ。その後で&quot;などに変換されている
       $(function(){
         $('code').each(function() {
           var txt= $(this).html();

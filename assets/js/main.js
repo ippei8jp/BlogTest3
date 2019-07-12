@@ -1,9 +1,9 @@
 var sectionHeight = function() {
-  var total    = $(window).height(),
+  let total    = $(window).height(),
       $section = $('section').css('height','auto');
 
   if ($section.outerHeight(true) < total) {
-    var margin = $section.outerHeight(true) - $section.height();
+    let margin = $section.outerHeight(true) - $section.height();
     $section.height(total - margin - 20);
   } else {
     $section.css('height','auto');
@@ -12,6 +12,7 @@ var sectionHeight = function() {
 
 $(window).resize(sectionHeight);
 
+// -------- index関連処理 --------
 $(function() {
   $("section h1, section h2, section h3").each(function(){
     // IDに日本語も使いたいので、「英数とアンダーバー(\w)、マイナス(-)以外」削除の処理を
@@ -25,7 +26,7 @@ $(function() {
   });
 
   $("nav ul li").on("click", "a", function(event) {
-    var position = $($(this).attr("href")).offset().top - 190;
+    let position = $($(this).attr("href")).offset().top - 190;
     $("html, body").animate({scrollTop: position}, 400);
     $("nav ul li a").parent().removeClass("active");
     $(this).parent().addClass("active");
@@ -90,3 +91,70 @@ $(function() {
     }
   }
 });
+
+// -------- 引用の処理 --------
+$(function() {
+    $('blockquote').each(function(i, element) {
+        let str = $(element).text();
+        if (str.match(/^\s*\[\!NOTE\]/)) {                              // ブロック指定子と一致するか？
+            let tmp_str = str.replace(/^\s*\[\!NOTE\]/, '');            // ブロック指定子の削除
+            $(element).text(tmp_str);
+            $(element).prepend('<strong>==== NOTE ====</strong><br>');  // ブロックタイプの表示
+            $(element).addClass('is-note');                             // 背景色変更のためのクラス指定
+        }
+        else if (str.match(/^\s*\[\!WARNING\]/)) {
+            let tmp_str = str.replace(/^\s*\[\!WARNING\]/, '');
+            $(element).text(tmp_str);
+            $(element).prepend('<strong>==== WARNING ====</strong><br>');
+            $(element).addClass('is-warning');
+        }
+        else if (str.match(/^\s*\[\!ERROR\]/)) {
+            let tmp_str = str.replace(/^\s*\[\!ERROR\]/, '');
+            $(element).text(tmp_str);
+            $(element).prepend('<strong>==== ERROR ====</strong><br>');
+            $(element).addClass('is-error');
+        }
+        else if (str.match(/^\s*\[\!TIP\]/)) {
+            let tmp_str = str.replace(/^\s*\[\!TIP\]/, '');
+            $(element).text(tmp_str);
+            $(element).prepend('<strong>==== TIP ====</strong><br>');
+            $(element).addClass('is-tip');
+        }
+        else if (str.match(/^\s*\[\!IMPORTANT\]/)) {
+            let tmp_str = str.replace(/^\s*\[\!IMPORTANT\]/, '');
+            $(element).text(tmp_str);
+            $(element).prepend('<strong>==== IMPORTANT ====</strong><br>');
+            $(element).addClass('is-important');
+        }
+    });
+});
+
+// -------- tag絞り込み関連処理 --------
+
+$(function() {
+    $('#tag_selrctor').change(function() {
+        let selected_tag = $(this).val();
+        search_filter(selected_tag);
+    });
+});
+
+function search_filter(selected_tag) {
+    // 非表示状態を解除
+    $('.list_item').removeClass("list_hide");
+
+    // 値が空の場合はすべて表示
+    if(selected_tag === '') {
+        return;
+    }
+
+    // リスト内の各アイテムをチェック
+    for (let i = 0; i < $('.list_item').length; i++) {
+        // アイテムに設定している項目を取得
+        let itemData = $('.list_item').eq(i).data('tags');
+        // 絞り込み対象かどうかを調べる
+        if (!itemData.includes(selected_tag)){
+            // itemData に selected_tag が含まれない
+            $('.list_item').eq(i).addClass("list_hide");
+        }
+    }
+}
