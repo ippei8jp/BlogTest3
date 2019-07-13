@@ -9,10 +9,36 @@ html {
  overflow-y: scroll;
 }
 
-/* NAVI領域 表示縦方向:画面表示の50%、スクロールバーを付ける */
+.wrapper {
+  width:900px;
+}
+
+header .title {
+  width:900px;
+  padding:0 30px;
+  margin: auto;
+}
+/* NAVI領域 表示縦方向:画面表示の50%、スクロールバーを付ける 
+   1行を折り返さない text左寄せ */
 nav {
   height: 50vh; 
+  width: 230px;
   overflow: auto; 
+  left: 10px;
+  margin-left: 0px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* footerとnavは、幅 横位置を揃える */
+footer {
+  width: 230px;
+  left: 10px;
+  margin-left: 0px;
+}
+
+section {
+  width: auto;
 }
 
 #banner {
