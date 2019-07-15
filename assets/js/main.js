@@ -1,17 +1,3 @@
-var sectionHeight = function() {
-  let total    = $(window).height(),
-      $section = $('section').css('height','auto');
-
-  if ($section.outerHeight(true) < total) {
-    let margin = $section.outerHeight(true) - $section.height();
-    $section.height(total - margin - 20);
-  } else {
-    $section.css('height','auto');
-  }
-}
-
-$(window).resize(sectionHeight);
-
 // -------- index関連処理 --------
 $(function() {
   $("section h1, section h2, section h3").each(function(){
@@ -32,10 +18,6 @@ $(function() {
     $(this).parent().addClass("active");
     event.preventDefault();
   });
-
-  sectionHeight();
-
-  $('img').on('load', sectionHeight);
 });
 
 

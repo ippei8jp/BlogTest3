@@ -1,50 +1,16 @@
 ---
 ---
-/* jekyllで使用するscssファイルには先頭に「---」2行が必要 */
+// jekyllで使用するscssファイルには先頭に「---」2行が必要
 
-@import "{{ site.theme }}";
+// ヘッダの色
+$default_color:   #00b300;
+$top_color:       #0d5bee;
+$debug_color:     #ff66a3;
 
-/* スクロールバーを常に表示させる */
-html {
- overflow-y: scroll;
-}
-
-.wrapper {
-  width:900px;
-}
-
-header .title {
-  width:900px;
-  padding:0 30px;
-  margin: auto;
-}
-/* NAVI領域 表示縦方向:画面表示の50%、スクロールバーを付ける 
-   1行を折り返さない text左寄せ */
-nav {
-  height: 50vh; 
-  width: 230px;
-  overflow: auto; 
-  left: 10px;
-  margin-left: 0px;
-  white-space: nowrap;
-  text-align: left;
-}
-
-/* footerとnavは、幅 横位置を揃える */
-footer {
-  width: 230px;
-  left: 10px;
-  margin-left: 0px;
-}
-
-section {
-  width: auto;
-}
-
-#banner {
-  height: 70px;
-  top: 95px;
-}
+// オリジナルの設定をすこしいじりたかったので、カスタマイズしたscssファイルを使用
+// カスタマイズしたscssファイル はプロジェクトディレクトリの_sassにある。
+// @import "{{ site.theme }}";
+@import "my_theme";
 
 /* アイコン表示用 */
 .avatar {
@@ -52,16 +18,6 @@ section {
     width: 64px;
     border-radius: 999em;
     margin-right: 20px;
-}
-
-/* ヘッダ領域 */
-header {
-    background: #00b300;
-}
-
-/* トップページ用ヘッダ領域 */
-header.toppage {
-    background: #0d5bee;
 }
 
 /* -------- copy buttonの設定 -------- */
@@ -86,79 +42,3 @@ div.highlight {
 div.highlight:hover .select_all_button {
     display: inline-block;
 }
-
-
-/* -------- 行番号表示関連設定 -------- */
-pre {
-  code {
-    font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-    font-size: 1em;
-  }
-  .line-number {
-    display: block;
-    float: left;
-    font-family: 'Lucida Sans', Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
-    font-size: 1em;
-    text-shadow: 0px 1px 0px #000;
-    margin-left: -1em;
-    margin-right: 1em;
-    border-right: 1px solid #ddd;
-    text-align: right;
-    span {
-      display: block;
-      font-size: 1em;
-      padding: 0 .5em 0 1em;
-      color: #ccc;
-    }
-  }
-  .cl {
-    display: block;
-    clear: both;
-  }
-}
-
-/* -------- tag絞り込み関連処理 -------- */
-.list_item {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #333333;
-  border-radius: 10px;
-}
-
-.list_hide {
-    display: none;
-}
-
-select#tag_selrctor {
-    width: 100%;
-}
-
-/* -------- 引用 -------- */
-blockquote {
-    border: 1px solid #ffcc00;
-    border-radius: 5px;
-    margin: 1em 0;
-    padding: 16px 20px 16px 20px;
-    font-style: italic;
-
-    /* デフォルトの背景色 */
-    background-color: #e0e0e0;
-}
-
-/* 各状態で背景色を変える */
-blockquote.is-note {
-    background-color: #e0f2ff;
-}
-blockquote.is-warning {
-    background-color: #fff1cc;
-}
-blockquote.is-error {
-    background-color: #ffcccc;
-}
-blockquote.is-tip {
-    background-color: #caffba;
-}
-blockquote.is-important {
-    background-color: #ffd4ab;
-}
-

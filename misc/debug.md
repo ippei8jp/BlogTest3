@@ -5,31 +5,15 @@ tags: ["debug", "jekyll"]
 layout: debug
 show_banner: false
 ---
-> [!NOTE]
-> This is a NOTE
-
-> [!WARNING]
-> This is a WARNING
-
-> [!ERROR]
-> This is a ERROR
-
-> [!TIP]
-> This is a TIP
-
-> [!IMPORTANT]
-> This is IMPORTANT
-
-
-
-
 # site変数
 ```
+site = 
 {{ site | inspect }}
 ```
 
 # site.tags変数
 ```
+site.tags = 
 {{ site.tags | inspect }}
 ```
 
@@ -43,11 +27,12 @@ show_banner: false
 {{ tag_keys  | inspect }}
 ```
 
+# site.posts[1]変数
+```
+site.posts[1] = 
+{{ site.posts[1] | inspect }}
+```
 <!-- {% comment %}  HTMLのコメントだけだとLiquidの処理は止まらないので、コメント中にでっかいデータが出力されてしまう
-# site.posts 配列
-```
-  {{ site.posts[1] | inspect }}
-```
 # site.tags[0]変数
 
 ```

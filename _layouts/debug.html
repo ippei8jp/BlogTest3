@@ -11,23 +11,23 @@
 
   </head>
   <body>
-      <header style="background: #ff66a3;">
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.excerpt }}</p>
-      </header>
+    <header class="debug">
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.excerpt }}</p>
+    </header>
 
+    <nav>
+      <ul></ul>
+      <p class="to_top"><a href="{{ site.baseurl }}/">トップページ</a></p>
+    </nav>
     <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
       <section>
         {{ content }}
-
       </section>
-      <footer>
-        {% include footer.html %}
-      </footer>
     </div>
+    <footer class="debug">
+      {% include footer.html %}
+    </footer>
     <script>
       // 2段変換された&quot;などを元に戻す
       // Liquidのquoteで置換してもダメ。その後で&quot;などに変換されている
