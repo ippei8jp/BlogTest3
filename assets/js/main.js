@@ -23,13 +23,13 @@ $(function() {
 
 // -------- copy button関連処理 --------
 $(function() {
-  // すべてのhighlightクラスを持つdiv要素にselect_all_buttonクラスを持つdiv要素を追加する
-  // $("div.highlight").prepend('<div class="select_all_button">Copy</div>');
-  // すべてのhighlightクラスを持つpre要素の前にselect_all_buttonクラスを持つdiv要素を追加する
-  $("pre.highlight").before('<div class="select_all_button">Copy</div>');
+  // すべてのhighlightクラスを持つdiv要素にdo_copy_buttonクラスを持つdiv要素を追加する
+  // $("div.highlight").prepend('<div class="do_copy_button">Copy</div>');
+  // すべてのhighlightクラスを持つpre要素の前にdo_copy_buttonクラスを持つdiv要素を追加する
+  $("pre.highlight").before('<div class="do_copy_button">Copy</div>');
 
-  // select_all_buttonクラスのclickイベントを登録
-  $(".select_all_button").on("click", function(event) {
+  // do_copy_buttonクラスのclickイベントを登録
+  $(".do_copy_button").on("click", function(event) {
     // thisの次の兄弟エレメント(preのはず)
     let elem_pre = this.nextSibling;
     // の子の最初のcodeタグ

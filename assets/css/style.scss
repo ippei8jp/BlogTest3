@@ -26,11 +26,19 @@ div.highlight {
     position: relative;
 }
 
-/* 選択ボタン(非表示にしておく) */
-.select_all_button {
+/* コピーボタン(非表示にしておく) */
+.do_copy_button {
     display: none;
+/*
     position: absolute;
     right: 0; top: 0;
+*/
+    position: -webkit-sticky; /* safari対応 */
+    position: sticky;
+    top:   0;
+    float: right;
+    margin: 0 0 0 -100px;
+
     padding: 3px 6px 1px 6px;
     font-size: 1.1rem;
     color: #fff;
@@ -38,7 +46,7 @@ div.highlight {
     cursor: pointer;
 }
 
-/* コードの領域にマウスオンで選択ボタンを表示 */
-div.highlight:hover .select_all_button {
+/* コードの領域にマウスオンでコピーボタンを表示 */
+div.highlight:hover .do_copy_button {
     display: inline-block;
 }
