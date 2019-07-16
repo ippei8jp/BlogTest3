@@ -140,3 +140,14 @@ function search_filter(selected_tag) {
         }
     }
 }
+
+
+// -------- floatingScrollBar関連処理 --------
+// 引用元： https://amphiluke.github.io/floating-scroll/
+$(function() {
+  if (typeof $.fn.floatingScroll === 'function') {
+    // floatingScrollが読み込まれていた場合の処理
+    // すべてのhighlightクラスを持つpre要素でfloatingScrollを初期化
+    $("pre.highlight").floatingScroll();
+  }
+});
